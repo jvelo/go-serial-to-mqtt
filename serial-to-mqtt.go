@@ -3,7 +3,6 @@ package main
 import (
 	"bufio"
 	"fmt"
-	"log"
 	"os"
 	"strings"
 
@@ -16,7 +15,7 @@ func main() {
 	config := &serial.Config{Name: "/dev/tty.usbmodem1411", Baud: 57600}
 	s, err := serial.OpenPort(config)
 	if err != nil {
-		log.Fatal(err)
+		panic(err)
 	}
 
 	opts := MQTT.NewClientOptions().AddBroker("tcp://46.101.145.61:1883")
